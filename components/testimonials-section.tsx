@@ -3,13 +3,13 @@
 import { Star, Quote } from "lucide-react"
 import Image from 'next/image'
 
-// Cards
+// Cards Testemunhais Clientes
 
 const testimonials = [
   {
     name: "Mariana Silva",
     text: "A Carolina transformou nosso apartamento num espaco dos sonhos. Cada detalhe foi pensado com muito carinho e profissionalismo. Superou todas as expectativas!",
-    rating: 5,
+    rating: 5, // Estrelas da avaiação 
     project: "Apartamento - Itaim Bibi",
     video: "https://www.youtube.com/watch?v=SEU_VIDEO_ID1", // Exemplo, pode remover se não tiver vídeo
     photo: 'images/ftoadelia.jpg'
@@ -45,7 +45,7 @@ export function TestimonialsSection() {
             O que dizem nossos clientes
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            A satisfacao dos nossos clientes e a melhor prova do nosso trabalho.
+            A satisfação dos nossos clientes é a melhor prova do nosso trabalho.
           </p>
         </div>
 

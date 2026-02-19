@@ -30,77 +30,96 @@ export type PortfolioItem = {
 }
 
 export const portfolioItems: PortfolioItem[] = [
+
+    //Projetos - Portfolio
+
+    //Projeto 01
+
     {
-        title: "Residencia Vila Nova",
+        title: "Suíte Particular Resort Bob Z",
         slug: "residencia-vila-nova",
         description:
             "Projeto completo de casa moderna com 280m², integração total dos ambientes e estética contemporânea.",
-        tag: "Residencial",
-        category: "Casa",
-        coverImage: "/images/sala1.png",
+        tag: "Resort",
+        category: "Resort",
+        coverImage: "/images/projeto01/maquete1.jpeg",
         images: [
-            "/images/sala1.png",
-            "/images/sala2.png",
-            "/images/sala1.png",
-            "/images/sala2.png",
-            "/images/sala1.png",
-            "/images/sala2.png",
+            "/images/projeto01/maquete1.jpeg",
+            "/images/projeto01/maquete2.jpeg",
+            
         ],
-        location: "Teresina - PI",
-        areaM2: 280,
-        year: 2025,
+        location: "Cajueiro da Praia - PI",
+        areaM2: 40,
+        year: 2020,
         services: ["Projeto 3D", "Interiores", "Iluminação", "Marcenaria sob medida"],
+
+        //Destaques Projeto 01
+
         highlights: [
             "Integração sala/cozinha",
             "Iluminação cênica em camadas",
             "Materiais nobres e neutros",
         ],
-        testimonials: [
-            {
-                name: "Mariana Silva",
-                role: "Cliente",
-                rating: 5,
-                text: "Ficou impecável. A casa ganhou leveza, elegância e funcionalidade. Superou expectativas.",
-                date: "2025-11-10",
-            },
-        ],
     },
+
+    //Projeto 02
+
     {
-        title: "Apartamento Jardins",
-        slug: "apartamento-jardins",
+        title: "Suíte Particular Resort Bob Z",
+        slug: "residencia-vila-nova",
         description:
-            "Reforma e design de interiores para apartamento de alto padrão, com soluções inteligentes e atemporais.",
-        tag: "Residencial",
-        category: "Apartamento",
-        coverImage: "/images/sala2.png",
-        images: ["/images/sala2.png", "/images/sala1.png"],
-        location: "São Paulo - SP",
-        areaM2: 120,
-        year: 2024,
-        services: ["Reforma", "Interiores", "Mobiliário", "Paleta e materiais"],
-        highlights: ["Sala ampla e clean", "Marcenaria elegante", "Texturas suaves"],
-    },
-    {
-        title: "Boutique Conceito",
-        slug: "boutique-conceito",
-        description:
-            "Loja de moda com design exclusivo, iluminação cenográfica e experiência premium de compra.",
-        tag: "Comercial",
-        category: "Loja / Comercial",
-        coverImage: "/images/sala2.png",
+            "Projeto completo de casa moderna com 280m², integração total dos ambientes e estética contemporânea.",
+        tag: "Resort",
+        category: "Resort",
+        coverImage: "/images/projeto01/maquete1.jpeg",
         images: [
-            "/images/sala2.png",
-            "/images/sala1.png",
-            "/images/sala2.png",
-            "/images/sala1.png",
-            "/images/sala2.png",
-            "/images/sala1.png",
+            "/images/projeto01/maquete1.jpeg",
+            "/images/projeto01/maquete2.jpeg",
+            
         ],
-        location: "Fortaleza - CE",
-        year: 2025,
-        services: ["Layout comercial", "Iluminação", "Vitrine", "Projeto 3D"],
-        highlights: ["Vitrine impactante", "Percurso de loja fluido", "Luz focada nos produtos"],
+        location: "Cajueiro da Praia - PI",
+        areaM2: 40,
+        year: 2020,
+        services: ["Projeto 3D", "Interiores", "Iluminação", "Marcenaria sob medida"],
+
+        //Destaques Projeto 02
+
+        highlights: [
+            "Integração sala/cozinha",
+            "Iluminação cênica em camadas",
+            "Materiais nobres e neutros",
+        ],
     },
+
+    //Projeto 03
+
+    {
+        title: "Suíte Particular Resort Bob Z",
+        slug: "residencia-vila-nova",
+        description:
+            "Projeto completo de casa moderna com 280m², integração total dos ambientes e estética contemporânea.",
+        tag: "Resort",
+        category: "Resort",
+        coverImage: "/images/projeto01/maquete1.jpeg",
+        images: [
+            "/images/projeto01/maquete1.jpeg",
+            "/images/projeto01/maquete2.jpeg",
+            
+        ],
+        location: "Cajueiro da Praia - PI",
+        areaM2: 40,
+        year: 2020,
+        services: ["Projeto 3D", "Interiores", "Iluminação", "Marcenaria sob medida"],
+
+        //Destaques Projeto 03
+
+        highlights: [
+            "Integração sala/cozinha",
+            "Iluminação cênica em camadas",
+            "Materiais nobres e neutros",
+        ],
+    },
+    
 ]
 
 export function getPortfolioItemBySlug(slug: string) {
