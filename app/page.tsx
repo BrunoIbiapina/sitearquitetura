@@ -2,6 +2,7 @@ import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { PortfolioSection } from "@/components/portfolio-section"
 import { ServicesSection } from "@/components/services-section"
+import { OngoingWorksSection } from "@/components/ongoing-works-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { CTASection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
@@ -17,6 +18,7 @@ export default function Home() {
       <main>
         <HeroSection />
         <PortfolioSection />
+        <OngoingWorksSection />
         <ServicesSection />
         <TestimonialsSection />
         <CTASection />
