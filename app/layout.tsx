@@ -7,7 +7,7 @@ const _inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const _playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' })
 
 export const metadata: Metadata = {
-  title: 'Arq. Carolina Mendes | Arquitetura & Design de Interiores',
+  title: 'Arq. Adélia Ibiapina | Arquitetura & Design de Interiores',
   description: 'Projetos residenciais e comerciais do conceito a execucao, com atencao aos detalhes e foco no seu estilo de vida.',
   generator: 'v0.app',
   icons: {
