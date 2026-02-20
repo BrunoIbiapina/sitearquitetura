@@ -37,21 +37,27 @@ export const portfolioItems: PortfolioItem[] = [
 
     {
         title: "Suíte Particular Resort Bob Z",
-        slug: "residencia-vila-nova",
+        slug: "resort-bob-z",
         description:
-            "Projeto completo de casa moderna com 280m², integração total dos ambientes e estética contemporânea.",
+            "Esse projeto apresenta um quarto de hotel/pousada de alto padrão com estética praiana contemporânea, combinando conforto, sofisticação e forte conexão com a paisagem externa.",
         tag: "Resort",
         category: "Resort",
         coverImage: "/images/projeto01/maquete1.jpeg",
         images: [
             "/images/projeto01/maquete1.jpeg",
             "/images/projeto01/maquete2.jpeg",
+            "/images/projeto01/foto02.jpeg",
+            "/images/projeto01/foto03.jpeg",
+            "/images/projeto01/foto04.jpeg",
+            "/images/projeto01/foto05.jpeg",
+            "/images/projeto01/foto06.jpeg",
+            "/images/projeto01/foto07.jpeg",
             
         ],
         location: "Cajueiro da Praia - PI",
-        areaM2: 40,
-        year: 2020,
-        services: ["Projeto 3D", "Interiores", "Iluminação", "Marcenaria sob medida"],
+        areaM2: 32.80,
+        year: 2024,
+        services: [ "Interiores", "Iluminação", "Marcenaria sob medida"],
 
         //Destaques Projeto 01
 
@@ -64,61 +70,6 @@ export const portfolioItems: PortfolioItem[] = [
 
     //Projeto 02
 
-    {
-        title: "Suíte Particular Resort Bob Z",
-        slug: "residencia-vila-nova",
-        description:
-            "Projeto completo de casa moderna com 280m², integração total dos ambientes e estética contemporânea.",
-        tag: "Resort",
-        category: "Resort",
-        coverImage: "/images/projeto01/maquete1.jpeg",
-        images: [
-            "/images/projeto01/maquete1.jpeg",
-            "/images/projeto01/maquete2.jpeg",
-            
-        ],
-        location: "Cajueiro da Praia - PI",
-        areaM2: 40,
-        year: 2020,
-        services: ["Projeto 3D", "Interiores", "Iluminação", "Marcenaria sob medida"],
-
-        //Destaques Projeto 02
-
-        highlights: [
-            "Integração sala/cozinha",
-            "Iluminação cênica em camadas",
-            "Materiais nobres e neutros",
-        ],
-    },
-
-    //Projeto 03
-
-    {
-        title: "Suíte Particular Resort Bob Z",
-        slug: "residencia-vila-nova",
-        description:
-            "Projeto completo de casa moderna com 280m², integração total dos ambientes e estética contemporânea.",
-        tag: "Resort",
-        category: "Resort",
-        coverImage: "/images/projeto01/maquete1.jpeg",
-        images: [
-            "/images/projeto01/maquete1.jpeg",
-            "/images/projeto01/maquete2.jpeg",
-            
-        ],
-        location: "Cajueiro da Praia - PI",
-        areaM2: 40,
-        year: 2020,
-        services: ["Projeto 3D", "Interiores", "Iluminação", "Marcenaria sob medida"],
-
-        //Destaques Projeto 03
-
-        highlights: [
-            "Integração sala/cozinha",
-            "Iluminação cênica em camadas",
-            "Materiais nobres e neutros",
-        ],
-    },
     
 ]
 
