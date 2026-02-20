@@ -52,12 +52,12 @@ export const portfolioItems: PortfolioItem[] = [
             "/images/projeto01/foto05.jpeg",
             "/images/projeto01/foto06.jpeg",
             "/images/projeto01/foto07.jpeg",
-            
+
         ],
         location: "Cajueiro da Praia - PI",
         areaM2: 32.80,
         year: 2024,
-        services: [ "Interiores", "Iluminação", "Marcenaria sob medida"],
+        services: ["Interiores", "Iluminação", "Marcenaria sob medida"],
 
         //Destaques Projeto 01
 
@@ -70,7 +70,113 @@ export const portfolioItems: PortfolioItem[] = [
 
     //Projeto 02
 
-    
+    {
+        title: "CASA C/M 01",
+        slug: "casa-01-campo-maior",
+        description:
+            "Este projeto apresenta uma residência contemporânea de dois pavimentos implantada em terreno em declive, com forte valorização da volumetria limpa, integração visual e iluminação cênica.",
+        tag: "Residencial",
+        category: "Residencial",
+        coverImage: "/images/projeto02/casa01.jpeg",
+        images: [
+            "/images/projeto02/casa01.jpeg",
+            "/images/projeto02/casa02.jpeg",
+
+        ],
+        location: "Campo Maior - PI",
+        areaM2: 246.08,
+        year: 2019,
+        services: ["Interiores", "Iluminação", "Marcenaria sob medida"],
+
+        //Destaques Projeto 02
+
+        highlights: [
+            "Acesso social elevado, valorizando a entrada principal",
+            "Implantação inteligente no terreno inclinado",
+            "Integração entre interior e exterior",
+            "Área gourmet elevada como protagonista",
+            "Iluminação cênica sofisticada",
+            "Paisagismo funcional e decorativo",
+        ],
+        
+    },
+    // PROJETO 03
+    {
+        title: "CASA C/M 02",
+        slug: "casa-02-campomaior",
+        description:
+            "Este projeto apresenta uma residência contemporânea de dois pavimentos implantada em terreno em declive, com forte valorização da volumetria limpa, integração visual e iluminação cênica.",
+        tag: "Residencial",
+        category: "Residencial",
+        coverImage: "/images/projeto03/foto02.jpeg",
+        images: [
+            "/images/projeto03/foto01.jpeg",
+            "/images/projeto03/foto02.jpeg",
+            "/images/projeto03/foto03.jpeg",
+            "/images/projeto03/foto04.jpeg",
+            "/images/projeto03/foto05.jpeg",
+            "/images/projeto03/foto06.jpeg",
+            "/images/projeto03/foto07.jpeg",
+
+
+        ],
+        location: "Campo Maior - PI",
+        areaM2: 1191.45,
+        year: 2011,
+        services: ["Interiores", "Iluminação", "Marcenaria sob medida"],
+
+        //Destaques Projeto 03
+
+        highlights: [
+            "Acesso social elevado, valorizando a entrada principal",
+            "Implantação inteligente no terreno inclinado",
+            "Integração entre interior e exterior",
+            "Área gourmet elevada como protagonista",
+            "Iluminação cênica sofisticada",
+            "Paisagismo funcional e decorativo",
+        ],
+        
+    },
+
+    // PROJETO 04
+    {
+        title: "LOJA G/F 01",
+        slug: "loja-g-f-01",
+        description:
+            "Projeto de design de interiores para uma confeitaria moderna, com uma estética suave e orgânica. O ambiente utiliza uma paleta de cores em tons de verde sálvia, madeira clara e terracota.",
+        tag: "Comercial",
+        category: "Comercial",
+        coverImage: "/images/projeto04/foto01.jpeg",
+        images: [
+            "/images/projeto04/foto01.jpeg",
+            "/images/projeto04/foto02.jpeg",
+            "/images/projeto04/foto03.jpeg",
+            "/images/projeto04/foto04.jpeg",
+            "/images/projeto04/foto05.jpeg",
+            "/images/projeto04/foto06.jpeg",
+            
+
+
+        ],
+        location: "Teresina - PI",
+        areaM2: 48.35,
+        year: 2025,
+        services: ["Interiores", "Iluminação", "Marcenaria sob medida"],
+
+        //Destaques Projeto 04
+
+        highlights: [
+            "Balcão Central",
+            "Mesas e Assentos",
+            "Prateleiras e Nichos",
+            "Iluminação e Revestimentos",
+            "Lustres",
+            "Atmosfera Geral",
+        ],
+        
+    },
+
+
 ]
 
 export function getPortfolioItemBySlug(slug: string) {
