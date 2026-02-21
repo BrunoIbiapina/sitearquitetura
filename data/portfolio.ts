@@ -175,6 +175,67 @@ export const portfolioItems: PortfolioItem[] = [
         ],
         
     },
+    // PROJETO 05
+    {
+        title: "CASA C/M 03",
+        slug: "casa-03-campomaior",
+        description:
+            "Projeto de design de interiores para uma confeitaria moderna, com uma estética suave e orgânica. O ambiente utiliza uma paleta de cores em tons de verde sálvia, madeira clara e terracota.",
+        tag: "Residencial",
+        category: "Residencial",
+        coverImage: "/images/projeto05/foto01.jpeg",
+        images: [
+            "/images/projeto05/foto01.jpeg",
+            
+            
+        ],
+        location: "Teresina - PI",
+        areaM2: 48.35,
+        year: 2025,
+        services: ["Interiores", "Iluminação", "Marcenaria sob medida"],
+
+        //Destaques Projeto 05
+
+        highlights: [
+            "Balcão Central",
+            "Mesas e Assentos",
+            "Prateleiras e Nichos",
+            "Iluminação e Revestimentos",
+            "Lustres",
+            "Atmosfera Geral",
+        ],
+        
+    },
+
+    // PROJETO 06
+    {
+        title: "CLINICA ODONTOLOGIA - C/M",
+        slug: "clinica-01-campomaior",
+        description:
+            "O projeto apresenta uma clínica OFTALMOLOGICA contemporânea com linguagem arquitetônica sofisticada, forte identidade visual e proposta acolhedora.",
+        tag: "Comercial",
+        category: "Comercial",
+        coverImage: "/images/projeto06/foto01.jpeg",
+        images: [
+            "/images/projeto06/foto01.jpeg",
+            
+            
+        ],
+        location: "Campo Maior - PI",
+        areaM2: 46.14,
+        year: 2021,
+        services: ["Interiores", "Iluminação", "Marcenaria sob medida"],
+
+        //Destaques Projeto 06
+
+        highlights: [
+            "⁠Elemento Central em Destaque",
+            "Revestimento em Porcelanato Marmorizado",
+            "⁠Esquadrias em Vidro Amplo",
+            "Iluminação e Revestimentos",
+        ],
+        
+    },
 
 
 ]
