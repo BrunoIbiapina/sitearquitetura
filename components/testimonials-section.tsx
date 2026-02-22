@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { Star, Quote } from "lucide-react"
-import Image from 'next/image'
+import { Star, Quote } from "lucide-react";
+import Image from "next/image";
 
 // Cards Testemunhais Clientes
 
@@ -9,10 +9,10 @@ const testimonials = [
   {
     name: "Mariana Silva",
     text: "A Carolina transformou nosso apartamento num espaco dos sonhos. Cada detalhe foi pensado com muito carinho e profissionalismo. Superou todas as expectativas!",
-    rating: 5, // Estrelas da avaiação 
+    rating: 5, // Estrelas da avaiação
     project: "Apartamento - Itaim Bibi",
     video: "https://www.youtube.com/watch?v=SEU_VIDEO_ID1", // Exemplo, pode remover se não tiver vídeo
-    photo: 'images/ftoadelia.jpg'
+    photo: "images/ftoadelia.jpg",
   },
   {
     name: "Ricardo & Fernanda",
@@ -20,7 +20,7 @@ const testimonials = [
     rating: 5,
     project: "Casa - Alphaville",
     video: "https://www.youtube.com/watch?v=SEU_VIDEO_ID1",
-    photo: 'images/ftoadelia.jpg'
+    photo: "images/ftoadelia.jpg",
   },
   {
     name: "Dr. Paulo Menezes",
@@ -28,9 +28,9 @@ const testimonials = [
     rating: 5,
     project: "Consultorio - Vila Olimpia",
     video: "https://www.youtube.com/watch?v=SEU_VIDEO_ID2",
-    photo: 'images/ftoadelia.jpg'
+    photo: "images/ftoadelia.jpg",
   },
-]
+];
 
 export function TestimonialsSection() {
   return (
@@ -54,7 +54,8 @@ export function TestimonialsSection() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.name}
-              className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg lg:p-8"            >
+              className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg lg:p-8"
+            >
               {/* Quote icon */}
               <Quote className="mb-4 h-8 w-8 text-accent/20" />
 
@@ -68,23 +69,43 @@ export function TestimonialsSection() {
                 ))}
               </div>
 
-
               {/* Text + Video Icon */}
               <div className="mb-6 flex items-start gap-2">
                 <p className="text-sm leading-relaxed text-muted-foreground flex-1">
-                  {'"'}{testimonial.text}{'"'}
+                  {'"'}
+                  {testimonial.text}
+                  {'"'}
                 </p>
                 {testimonial.video && (
                   <button
                     type="button"
                     aria-label="Ver depoimento em vídeo"
                     title="Ver depoimento em vídeo"
-                    onClick={() => window.open(testimonial.video, '_blank', 'noopener')}
+                    onClick={() =>
+                      window.open(testimonial.video, "_blank", "noopener")
+                    }
                     className="ml-2 flex h-9 w-9 items-center justify-center rounded-full bg-accent/10 text-accent hover:bg-accent/20 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                   >
-                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect x="3" y="5" width="16" height="12" rx="3" stroke="currentColor" strokeWidth="1.6" />
-                      <path d="M10 9.5L14 11.5L10 13.5V9.5Z" fill="currentColor" />
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 22 22"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        x="3"
+                        y="5"
+                        width="16"
+                        height="12"
+                        rx="3"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                      />
+                      <path
+                        d="M10 9.5L14 11.5L10 13.5V9.5Z"
+                        fill="currentColor"
+                      />
                     </svg>
                   </button>
                 )}
@@ -126,5 +147,5 @@ export function TestimonialsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

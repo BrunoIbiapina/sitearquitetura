@@ -1,7 +1,12 @@
-"use client"
+"use client";
 
-import { PenTool, Sofa, MessageSquare, HardHat, ArrowRight } from "lucide-react"
-
+import {
+  PenTool,
+  Sofa,
+  MessageSquare,
+  HardHat,
+  ArrowRight,
+} from "lucide-react";
 
 const services = [
   {
@@ -32,7 +37,7 @@ const services = [
       "Supervisao tecnica para garantir que o projeto saia do papel exatamente como planejado, com qualidade e prazo.",
     color: "bg-[#22c55e]/10 text-[#22c55e]",
   },
-]
+];
 
 export function ServicesSection() {
   return (
@@ -47,8 +52,8 @@ export function ServicesSection() {
             Como posso ajudar
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Ofereco solucoes completas para transformar seus espacos, do projeto ao
-            acompanhamento final da obra.
+            Ofereco solucoes completas para transformar seus espacos, do projeto
+            ao acompanhamento final da obra.
           </p>
         </div>
 
@@ -84,5 +89,5 @@ export function ServicesSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

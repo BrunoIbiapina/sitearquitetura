@@ -1,0 +1,229 @@
+/* ===== Cookies Banner (Premium Architecture) ===== */
+.cookie-wrap {
+  position: fixed;
+  left: 18px;
+  bottom: 18px;
+  z-index: 9999;
+  padding: 0;
+  right: auto;
+  display: block;
+}
+
+.cookie-card {
+  width: 420px; /* tamanho “toast” */
+  max-width: calc(100vw - 36px);
+  border-radius: 18px;
+  padding: 16px 16px 14px 16px;
+  position: relative;
+  overflow: hidden;
+
+  background: rgba(12, 14, 16, 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Ink splash layers (no images) */
+.cookie-card::before,
+.cookie-card::after {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(18px);
+  opacity: 0.55;
+}
+
+/* splash 1 - petróleo */
+.cookie-card::before {
+  background:
+    radial-gradient(
+      closest-side at 18% 30%,
+      rgba(22, 166, 174, 0.55),
+      transparent 62%
+    ),
+    radial-gradient(
+      closest-side at 30% 70%,
+      rgba(18, 90, 140, 0.48),
+      transparent 60%
+    ),
+    radial-gradient(
+      closest-side at 70% 55%,
+      rgba(160, 110, 40, 0.22),
+      transparent 58%
+    );
+  transform: rotate(-6deg);
+}
+
+/* splash 2 - cobre/terracota sutil */
+.cookie-card::after {
+  background:
+    radial-gradient(
+      closest-side at 78% 30%,
+      rgba(205, 110, 65, 0.42),
+      transparent 62%
+    ),
+    radial-gradient(
+      closest-side at 62% 78%,
+      rgba(120, 210, 170, 0.18),
+      transparent 60%
+    );
+  transform: rotate(8deg);
+}
+
+/* content above splashes */
+.cookie-content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 12px;
+}
+
+.cookie-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cookie-title {
+  font-size: 16px;
+  letter-spacing: 0.2px;
+  font-weight: 650;
+  margin: 0;
+}
+
+.cookie-text {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.cookie-text a {
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  padding-bottom: 1px;
+  transition:
+    border-color 200ms ease,
+    opacity 200ms ease;
+}
+.cookie-text a:hover {
+  border-color: rgba(255, 255, 255, 0.75);
+  opacity: 0.95;
+}
+
+.cookie-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.btn {
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.btn:focus-visible,
+.cookie-link:focus-visible {
+  outline: 3px solid rgba(22, 166, 174, 0.35);
+  outline-offset: 3px;
+}
+
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    rgba(22, 166, 174, 0.95),
+    rgba(18, 90, 140, 0.95)
+  );
+  color: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 10px 22px rgba(22, 166, 174, 0.18);
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(22, 166, 174, 0.22);
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.88);
+}
+.btn-outline:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.26);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cookie-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 10px;
+  margin-left: 0; /* tira deslocamento */
+}
+.cookie-link::after {
+  bottom: 10px; /* underline sobe */
+}
+.cookie-link:hover::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+@media (max-width: 520px) {
+  .cookie-card {
+    border-radius: 18px;
+    padding: 16px 14px 14px 14px;
+  }
+  .cookie-actions {
+    gap: 8px;
+  }
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .cookie-link {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .cookie-wrap {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+  }
+  .cookie-card {
+    width: 100%;
+    max-width: none;
+    border-radius: 16px;
+  }
+  .btn {
+    width: 100%;
+  }
+  .cookie-link {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,18 +1,18 @@
-import { notFound } from "next/navigation"
-import Link from "next/link"
-import ProjectGallery from "@/components/ProjectGallery"
-import ProjectDetails from "@/components/ProjectDetails"
-import { getPortfolioItemBySlug } from "@/data/portfolio"
-import { ArrowLeft, ArrowUpRight } from "lucide-react"
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import ProjectGallery from "@/components/ProjectGallery";
+import ProjectDetails from "@/components/ProjectDetails";
+import { getPortfolioItemBySlug } from "@/data/portfolio";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 
 export default async function PortfolioDetalhe({
   params,
 }: {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string }>;
 }) {
-  const { slug } = await params
-  const item = getPortfolioItemBySlug(slug)
-  if (!item) return notFound()
+  const { slug } = await params;
+  const item = getPortfolioItemBySlug(slug);
+  if (!item) return notFound();
 
   return (
     <main className="min-h-screen bg-background">
@@ -47,11 +47,15 @@ export default async function PortfolioDetalhe({
               {item.tag}
             </span>
             <div className="h-1 w-1 rounded-full bg-border" />
-            <span className="text-xs text-muted-foreground">{item.category}</span>
+            <span className="text-xs text-muted-foreground">
+              {item.category}
+            </span>
             {item.year && (
               <>
                 <div className="h-1 w-1 rounded-full bg-border" />
-                <span className="text-xs text-muted-foreground">{item.year}</span>
+                <span className="text-xs text-muted-foreground">
+                  {item.year}
+                </span>
               </>
             )}
           </div>
@@ -117,5 +121,5 @@ export default async function PortfolioDetalhe({
         </section>
       </div>
     </main>
-  )
+  );
 }

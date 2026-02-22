@@ -1,16 +1,23 @@
-"use client"
+"use client";
 
-import { useEffect, useMemo, useRef, useState, useCallback } from "react"
-import Image from "next/image"
-import { ChevronLeft, ChevronRight, Pause, Play, Maximize2, X } from "lucide-react"
+import { useEffect, useMemo, useRef, useState, useCallback } from "react";
+import Image from "next/image";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Pause,
+  Play,
+  Maximize2,
+  X,
+} from "lucide-react";
 
 type Props = {
-  title: string
-  images: string[]
-  autoPlay?: boolean
-  intervalMs?: number
-  heightClassName?: string
-}
+  title: string;
+  images: string[];
+  autoPlay?: boolean;
+  intervalMs?: number;
+  heightClassName?: string;
+};
 
 export default function ProjectGallery({
   title,
@@ -21,72 +28,72 @@ export default function ProjectGallery({
 }: Props) {
   const safeImages = useMemo(
     () => (Array.isArray(images) ? images.filter(Boolean) : []),
-    [images]
-  )
+    [images],
+  );
 
-  const [index, setIndex] = useState(0)
-  const [playing, setPlaying] = useState(autoPlay)
-  const [lightbox, setLightbox] = useState(false)
-  const startX = useRef<number | null>(null)
-  const deltaX = useRef<number>(0)
+  const [index, setIndex] = useState(0);
+  const [playing, setPlaying] = useState(autoPlay);
+  const [lightbox, setLightbox] = useState(false);
+  const startX = useRef<number | null>(null);
+  const deltaX = useRef<number>(0);
 
-  const total = safeImages.length
-  const current = safeImages[index]
+  const total = safeImages.length;
+  const current = safeImages[index];
 
   const goPrev = useCallback(() => {
-    setIndex((i) => (i - 1 + total) % total)
-  }, [total])
+    setIndex((i) => (i - 1 + total) % total);
+  }, [total]);
 
   const goNext = useCallback(() => {
-    setIndex((i) => (i + 1) % total)
-  }, [total])
+    setIndex((i) => (i + 1) % total);
+  }, [total]);
 
   useEffect(() => {
-    if (!playing || total <= 1 || lightbox) return
+    if (!playing || total <= 1 || lightbox) return;
     const id = window.setInterval(() => {
-      setIndex((i) => (i + 1) % total)
-    }, intervalMs)
-    return () => window.clearInterval(id)
-  }, [playing, total, intervalMs, lightbox])
+      setIndex((i) => (i + 1) % total);
+    }, intervalMs);
+    return () => window.clearInterval(id);
+  }, [playing, total, intervalMs, lightbox]);
 
   useEffect(() => {
-    if (index > total - 1) setIndex(0)
-  }, [total, index])
+    if (index > total - 1) setIndex(0);
+  }, [total, index]);
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") goPrev()
-      else if (e.key === "ArrowRight") goNext()
-      else if (e.key === "Escape") setLightbox(false)
-    }
-    window.addEventListener("keydown", handleKey)
-    return () => window.removeEventListener("keydown", handleKey)
-  }, [goPrev, goNext])
+      if (e.key === "ArrowLeft") goPrev();
+      else if (e.key === "ArrowRight") goNext();
+      else if (e.key === "Escape") setLightbox(false);
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [goPrev, goNext]);
 
   const onPointerDown = (clientX: number) => {
-    startX.current = clientX
-    deltaX.current = 0
-  }
+    startX.current = clientX;
+    deltaX.current = 0;
+  };
   const onPointerMove = (clientX: number) => {
-    if (startX.current == null) return
-    deltaX.current = clientX - startX.current
-  }
+    if (startX.current == null) return;
+    deltaX.current = clientX - startX.current;
+  };
   const onPointerUp = () => {
-    if (startX.current == null) return
-    const dx = deltaX.current
-    startX.current = null
-    deltaX.current = 0
-    if (Math.abs(dx) < 50) return
-    if (dx > 0) goPrev()
-    else goNext()
-  }
+    if (startX.current == null) return;
+    const dx = deltaX.current;
+    startX.current = null;
+    deltaX.current = 0;
+    if (Math.abs(dx) < 50) return;
+    if (dx > 0) goPrev();
+    else goNext();
+  };
 
   if (total === 0) {
     return (
       <div className="mt-10 flex items-center justify-center rounded-2xl border border-dashed border-border bg-card/50 p-16 text-sm text-muted-foreground">
         Nenhuma imagem disponivel.
       </div>
-    )
+    );
   }
 
   return (
@@ -100,7 +107,8 @@ export default function ProjectGallery({
             </h2>
             <div className="h-px flex-1 min-w-8 bg-border" />
             <span className="text-xs tabular-nums text-muted-foreground">
-              {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+              {String(index + 1).padStart(2, "0")} /{" "}
+              {String(total).padStart(2, "0")}
             </span>
           </div>
 
@@ -112,7 +120,11 @@ export default function ProjectGallery({
                 className="inline-flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 aria-label={playing ? "Pausar autoplay" : "Iniciar autoplay"}
               >
-                {playing ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
+                {playing ? (
+                  <Pause className="h-3.5 w-3.5" />
+                ) : (
+                  <Play className="h-3.5 w-3.5" />
+                )}
               </button>
             )}
             <button
@@ -184,7 +196,10 @@ export default function ProjectGallery({
               <>
                 <button
                   type="button"
-                  onClick={(e) => { e.stopPropagation(); goPrev() }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goPrev();
+                  }}
                   className="absolute left-3 top-1/2 -translate-y-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/80 text-foreground opacity-0 shadow-lg backdrop-blur-sm transition-all duration-200 group-hover:opacity-100 hover:bg-white"
                   aria-label="Anterior"
                 >
@@ -192,7 +207,10 @@ export default function ProjectGallery({
                 </button>
                 <button
                   type="button"
-                  onClick={(e) => { e.stopPropagation(); goNext() }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goNext();
+                  }}
                   className="absolute right-3 top-1/2 -translate-y-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/80 text-foreground opacity-0 shadow-lg backdrop-blur-sm transition-all duration-200 group-hover:opacity-100 hover:bg-white"
                   aria-label="Proxima"
                 >
@@ -265,7 +283,10 @@ export default function ProjectGallery({
             <>
               <button
                 type="button"
-                onClick={(e) => { e.stopPropagation(); goPrev() }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goPrev();
+                }}
                 className="absolute left-5 top-1/2 z-10 -translate-y-1/2 inline-flex h-12 w-12 items-center justify-center rounded-full text-white/70 transition-colors hover:bg-white/10 hover:text-white"
                 aria-label="Anterior"
               >
@@ -273,7 +294,10 @@ export default function ProjectGallery({
               </button>
               <button
                 type="button"
-                onClick={(e) => { e.stopPropagation(); goNext() }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goNext();
+                }}
                 className="absolute right-5 top-1/2 z-10 -translate-y-1/2 inline-flex h-12 w-12 items-center justify-center rounded-full text-white/70 transition-colors hover:bg-white/10 hover:text-white"
                 aria-label="Proxima"
               >
@@ -301,10 +325,11 @@ export default function ProjectGallery({
 
           {/* Counter pill */}
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-medium tabular-nums text-white/80 backdrop-blur-sm">
-            {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+            {String(index + 1).padStart(2, "0")} /{" "}
+            {String(total).padStart(2, "0")}
           </div>
         </div>
       )}
     </>
-  )
+  );
 }

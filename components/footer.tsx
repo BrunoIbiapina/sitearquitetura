@@ -1,5 +1,5 @@
-import { WhatsAppFAB } from "@/components/WhatsAppFAB"
-import { Instagram, Linkedin, Facebook } from "lucide-react"
+import { WhatsAppFAB } from "@/components/WhatsAppFAB";
+import { Instagram, Linkedin, Facebook } from "lucide-react";
 
 const footerLinks = [
   { label: "Inicio", href: "#inicio" },
@@ -7,13 +7,12 @@ const footerLinks = [
   { label: "Servicos", href: "#servicos" },
   { label: "Depoimentos", href: "#depoimentos" },
   { label: "Contato", href: "#contato" },
-]
+];
 
 const socialLinks = [
   { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
   { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-  
-]
+];
 
 export function Footer() {
   return (
@@ -23,7 +22,9 @@ export function Footer() {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
-              <span className="font-serif text-base font-bold text-primary-foreground">A</span>
+              <span className="font-serif text-base font-bold text-primary-foreground">
+                A
+              </span>
             </div>
             <div className="flex flex-col">
               <span className="font-serif text-base leading-tight font-semibold text-foreground">
@@ -74,5 +75,5 @@ export function Footer() {
       </div>
       <WhatsAppFAB />
     </footer>
-  )
+  );
 }

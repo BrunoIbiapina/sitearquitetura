@@ -1,11 +1,10 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import { ArrowUpRight } from "lucide-react"
-import Link from "next/link"
-import { portfolioItems } from "@/data/portfolio"
-
+import { useState } from "react";
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { portfolioItems } from "@/data/portfolio";
 
 export function PortfolioSection() {
   return (
@@ -20,8 +19,8 @@ export function PortfolioSection() {
             Projetos que inspiram
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            Cada projeto e unico. Conhcca alguns dos nossos trabalhos mais recentes
-            e veja como transformamos espacos.
+            Cada projeto e unico. Conhcca alguns dos nossos trabalhos mais
+            recentes e veja como transformamos espacos.
           </p>
         </div>
 
@@ -33,15 +32,11 @@ export function PortfolioSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-function PortfolioCard({
-  item,
-}: {
-  item: (typeof portfolioItems)[number]
-}) {
-  const [isHovered, setIsHovered] = useState(false)
+function PortfolioCard({ item }: { item: (typeof portfolioItems)[number] }) {
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <Link
@@ -56,16 +51,19 @@ function PortfolioCard({
           src={item.coverImage}
           alt={item.title}
           fill
-          className={`object-cover transition-transform duration-500 ${isHovered ? "scale-110" : "scale-100"
-            }`}
+          className={`object-cover transition-transform duration-500 ${
+            isHovered ? "scale-110" : "scale-100"
+          }`}
         />
         <div
-          className={`absolute inset-0 bg-primary/40 transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"
-            }`}
+          className={`absolute inset-0 bg-primary/40 transition-opacity duration-300 ${
+            isHovered ? "opacity-100" : "opacity-0"
+          }`}
         />
         <div
-          className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"
-            }`}
+          className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
+            isHovered ? "opacity-100" : "opacity-0"
+          }`}
         >
           <div className="flex h-12 w-12 items-center justify-center rounded-full bg-card shadow-lg">
             <ArrowUpRight className="h-5 w-5 text-foreground" />
@@ -98,5 +96,5 @@ function PortfolioCard({
         </div>
       </div>
     </Link>
-  )
+  );
 }
