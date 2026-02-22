@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { useParams } from "next/navigation"
-import { notFound } from "next/navigation"
-import Link from "next/link"
-import Image from "next/image"
-import { useState } from "react"
+import { useParams } from "next/navigation";
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
 import {
   ArrowLeft,
   MapPin,
@@ -21,15 +21,15 @@ import {
   ChevronRight,
   X,
   User,
-} from "lucide-react"
-import { getOngoingWorkBySlug } from "@/data/ongoing-works"
-import type { WorkUpdate, WorkComment } from "@/data/ongoing-works"
+} from "lucide-react";
+import { getOngoingWorkBySlug } from "@/data/ongoing-works";
+import type { WorkUpdate, WorkComment } from "@/data/ongoing-works";
 
 export default function ObraDetalhePage() {
-  const params = useParams<{ slug: string }>()
-  const work = getOngoingWorkBySlug(params.slug)
+  const params = useParams<{ slug: string }>();
+  const work = getOngoingWorkBySlug(params.slug);
 
-  if (!work) return notFound()
+  if (!work) return notFound();
 
   return (
     <main className="min-h-screen bg-background">
@@ -47,7 +47,9 @@ export default function ObraDetalhePage() {
             <HardHat className="h-3.5 w-3.5 text-accent" />
             <span>{work.category}</span>
             <span className="text-border">{"/"}</span>
-            <span className="font-semibold text-accent tabular-nums">{work.progress}%</span>
+            <span className="font-semibold text-accent tabular-nums">
+              {work.progress}%
+            </span>
           </div>
         </div>
       </div>
@@ -80,11 +82,19 @@ export default function ObraDetalhePage() {
             </span>
             <span className="inline-flex items-center gap-1.5">
               <Calendar className="h-4 w-4 text-accent" />
-              Inicio: {new Date(work.startDate).toLocaleDateString("pt-BR", { month: "long", year: "numeric" })}
+              Inicio:{" "}
+              {new Date(work.startDate).toLocaleDateString("pt-BR", {
+                month: "long",
+                year: "numeric",
+              })}
             </span>
             <span className="inline-flex items-center gap-1.5">
               <Clock className="h-4 w-4 text-accent" />
-              Previsao: {new Date(work.estimatedEnd).toLocaleDateString("pt-BR", { month: "long", year: "numeric" })}
+              Previsao:{" "}
+              {new Date(work.estimatedEnd).toLocaleDateString("pt-BR", {
+                month: "long",
+                year: "numeric",
+              })}
             </span>
           </div>
         </header>
@@ -93,7 +103,9 @@ export default function ObraDetalhePage() {
         <div className="mb-10 rounded-2xl border border-border bg-card p-6 shadow-sm">
           <div className="flex items-center justify-between text-sm">
             <span className="font-medium text-foreground">Progresso geral</span>
-            <span className="font-bold text-accent tabular-nums text-lg">{work.progress}%</span>
+            <span className="font-bold text-accent tabular-nums text-lg">
+              {work.progress}%
+            </span>
           </div>
           <div className="mt-3 h-3 w-full rounded-full bg-muted">
             <div
@@ -115,11 +127,15 @@ export default function ObraDetalhePage() {
         <div className="py-16" />
       </div>
     </main>
-  )
+  );
 }
 
 /* ─────────── Timeline ─────────── */
-function TimelineSection({ phases }: { phases: { name: string; status: string; date?: string }[] }) {
+function TimelineSection({
+  phases,
+}: {
+  phases: { name: string; status: string; date?: string }[];
+}) {
   return (
     <section className="mb-12">
       <h2 className="font-serif text-xl font-bold text-foreground md:text-2xl">
@@ -134,8 +150,8 @@ function TimelineSection({ phases }: { phases: { name: string; status: string; d
               phase.status === "completed"
                 ? "border-accent/30 bg-accent/5"
                 : phase.status === "in-progress"
-                ? "border-accent bg-accent/10 shadow-sm"
-                : "border-border bg-card"
+                  ? "border-accent bg-accent/10 shadow-sm"
+                  : "border-border bg-card"
             }`}
           >
             <div className="mt-0.5">
@@ -151,13 +167,19 @@ function TimelineSection({ phases }: { phases: { name: string; status: string; d
               )}
             </div>
             <div className="flex-1">
-              <p className={`text-sm font-semibold ${
-                phase.status === "upcoming" ? "text-muted-foreground" : "text-foreground"
-              }`}>
+              <p
+                className={`text-sm font-semibold ${
+                  phase.status === "upcoming"
+                    ? "text-muted-foreground"
+                    : "text-foreground"
+                }`}
+              >
                 {phase.name}
               </p>
               {phase.date && (
-                <p className="mt-0.5 text-xs text-muted-foreground">{phase.date}</p>
+                <p className="mt-0.5 text-xs text-muted-foreground">
+                  {phase.date}
+                </p>
               )}
             </div>
             {phase.status === "in-progress" && (
@@ -169,11 +191,17 @@ function TimelineSection({ phases }: { phases: { name: string; status: string; d
         ))}
       </div>
     </section>
-  )
+  );
 }
 
 /* ─────────── Updates Feed ─────────── */
-function UpdatesFeed({ updates, workTitle }: { updates: WorkUpdate[]; workTitle: string }) {
+function UpdatesFeed({
+  updates,
+  workTitle,
+}: {
+  updates: WorkUpdate[];
+  workTitle: string;
+}) {
   return (
     <section className="mb-12">
       <div className="flex items-center gap-3">
@@ -189,12 +217,18 @@ function UpdatesFeed({ updates, workTitle }: { updates: WorkUpdate[]; workTitle:
         ))}
       </div>
     </section>
-  )
+  );
 }
 
-function UpdateCard({ update, workTitle }: { update: WorkUpdate; workTitle: string }) {
-  const [lightboxOpen, setLightboxOpen] = useState(false)
-  const [lightboxIndex, setLightboxIndex] = useState(0)
+function UpdateCard({
+  update,
+  workTitle,
+}: {
+  update: WorkUpdate;
+  workTitle: string;
+}) {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
   return (
     <article className="rounded-2xl border border-border bg-card shadow-sm overflow-hidden">
@@ -204,7 +238,9 @@ function UpdateCard({ update, workTitle }: { update: WorkUpdate; workTitle: stri
           <Calendar className="h-4 w-4 text-accent" />
         </div>
         <div>
-          <p className="text-sm font-semibold text-foreground">{update.title}</p>
+          <p className="text-sm font-semibold text-foreground">
+            {update.title}
+          </p>
           <p className="text-xs text-muted-foreground">
             {new Date(update.date).toLocaleDateString("pt-BR", {
               day: "2-digit",
@@ -235,8 +271,8 @@ function UpdateCard({ update, workTitle }: { update: WorkUpdate; workTitle: stri
                   key={i}
                   type="button"
                   onClick={() => {
-                    setLightboxIndex(i)
-                    setLightboxOpen(true)
+                    setLightboxIndex(i);
+                    setLightboxOpen(true);
                   }}
                   className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border group cursor-pointer"
                 >
@@ -265,7 +301,10 @@ function UpdateCard({ update, workTitle }: { update: WorkUpdate; workTitle: stri
             </div>
             <div className="grid gap-3">
               {update.videos.map((video, i) => (
-                <div key={i} className="aspect-video overflow-hidden rounded-xl border border-border">
+                <div
+                  key={i}
+                  className="aspect-video overflow-hidden rounded-xl border border-border"
+                >
                   <iframe
                     src={video}
                     title={`${update.title} - video ${i + 1}`}
@@ -298,8 +337,10 @@ function UpdateCard({ update, workTitle }: { update: WorkUpdate; workTitle: stri
           <button
             type="button"
             onClick={(e) => {
-              e.stopPropagation()
-              setLightboxIndex((p) => (p - 1 + update.photos.length) % update.photos.length)
+              e.stopPropagation();
+              setLightboxIndex(
+                (p) => (p - 1 + update.photos.length) % update.photos.length,
+              );
             }}
             className="absolute left-4 flex h-10 w-10 items-center justify-center rounded-full bg-card/20 text-card backdrop-blur-sm transition hover:bg-card/40"
             aria-label="Anterior"
@@ -323,8 +364,8 @@ function UpdateCard({ update, workTitle }: { update: WorkUpdate; workTitle: stri
           <button
             type="button"
             onClick={(e) => {
-              e.stopPropagation()
-              setLightboxIndex((p) => (p + 1) % update.photos.length)
+              e.stopPropagation();
+              setLightboxIndex((p) => (p + 1) % update.photos.length);
             }}
             className="absolute right-4 flex h-10 w-10 items-center justify-center rounded-full bg-card/20 text-card backdrop-blur-sm transition hover:bg-card/40"
             aria-label="Proxima"
@@ -338,13 +379,13 @@ function UpdateCard({ update, workTitle }: { update: WorkUpdate; workTitle: stri
         </div>
       )}
     </article>
-  )
+  );
 }
 
 /* ─────────── Comments ─────────── */
 function CommentsSection({ comments }: { comments: WorkComment[] }) {
-  const [newComment, setNewComment] = useState("")
-  const [authorName, setAuthorName] = useState("")
+  const [newComment, setNewComment] = useState("");
+  const [authorName, setAuthorName] = useState("");
 
   return (
     <section className="mb-12">
@@ -405,25 +446,35 @@ function CommentsSection({ comments }: { comments: WorkComment[] }) {
         ))}
       </div>
     </section>
-  )
+  );
 }
 
-function CommentItem({ comment, isReply = false }: { comment: WorkComment; isReply?: boolean }) {
-  const [showReplyForm, setShowReplyForm] = useState(false)
-  const [replyText, setReplyText] = useState("")
+function CommentItem({
+  comment,
+  isReply = false,
+}: {
+  comment: WorkComment;
+  isReply?: boolean;
+}) {
+  const [showReplyForm, setShowReplyForm] = useState(false);
+  const [replyText, setReplyText] = useState("");
 
   return (
     <div className={`${isReply ? "ml-10 mt-3" : ""}`}>
-      <div className={`rounded-xl border p-4 ${
-        isReply ? "border-accent/20 bg-accent/5" : "border-border bg-card"
-      }`}>
+      <div
+        className={`rounded-xl border p-4 ${
+          isReply ? "border-accent/20 bg-accent/5" : "border-border bg-card"
+        }`}
+      >
         {/* Author row */}
         <div className="flex items-center gap-3">
-          <div className={`flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold ${
-            comment.author.includes("Adelia")
-              ? "bg-accent text-accent-foreground"
-              : "bg-secondary text-secondary-foreground"
-          }`}>
+          <div
+            className={`flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold ${
+              comment.author.includes("Adelia")
+                ? "bg-accent text-accent-foreground"
+                : "bg-secondary text-secondary-foreground"
+            }`}
+          >
             {comment.author.charAt(0).toUpperCase()}
           </div>
           <div>
@@ -486,5 +537,5 @@ function CommentItem({ comment, isReply = false }: { comment: WorkComment; isRep
         <CommentItem key={reply.id} comment={reply} isReply />
       ))}
     </div>
-  )
+  );
 }

@@ -1,12 +1,12 @@
-import { MapPin, Ruler, Calendar, Check, Sparkles, Layers } from "lucide-react"
+import { MapPin, Ruler, Calendar, Check, Sparkles, Layers } from "lucide-react";
 
 type ProjectDetailsProps = {
-  location?: string
-  areaM2?: number
-  year?: number
-  services?: string[]
-  highlights?: string[]
-}
+  location?: string;
+  areaM2?: number;
+  year?: number;
+  services?: string[];
+  highlights?: string[];
+};
 
 export default function ProjectDetails({
   location,
@@ -15,11 +15,11 @@ export default function ProjectDetails({
   services,
   highlights,
 }: ProjectDetailsProps) {
-  const hasInfo = location || areaM2 || year
-  const hasServices = services && services.length > 0
-  const hasHighlights = highlights && highlights.length > 0
+  const hasInfo = location || areaM2 || year;
+  const hasServices = services && services.length > 0;
+  const hasHighlights = highlights && highlights.length > 0;
 
-  if (!hasInfo && !hasServices && !hasHighlights) return null
+  if (!hasInfo && !hasServices && !hasHighlights) return null;
 
   return (
     <section className="mt-16">
@@ -36,7 +36,11 @@ export default function ProjectDetails({
       {hasInfo && (
         <div className="grid gap-3 sm:grid-cols-3 mb-8">
           {location && (
-            <InfoCard icon={<MapPin className="h-4 w-4" />} label="Localizacao" value={location} />
+            <InfoCard
+              icon={<MapPin className="h-4 w-4" />}
+              label="Localizacao"
+              value={location}
+            />
           )}
           {areaM2 && (
             <InfoCard
@@ -46,7 +50,11 @@ export default function ProjectDetails({
             />
           )}
           {year && (
-            <InfoCard icon={<Calendar className="h-4 w-4" />} label="Ano" value={year.toString()} />
+            <InfoCard
+              icon={<Calendar className="h-4 w-4" />}
+              label="Ano"
+              value={year.toString()}
+            />
           )}
         </div>
       )}
@@ -61,8 +69,12 @@ export default function ProjectDetails({
                 <Sparkles className="h-3.5 w-3.5 text-accent" />
               </div>
               <div>
-                <h3 className="font-serif text-base font-semibold text-foreground">Destaques</h3>
-                <p className="text-[11px] text-muted-foreground">O que torna este projeto unico</p>
+                <h3 className="font-serif text-base font-semibold text-foreground">
+                  Destaques
+                </h3>
+                <p className="text-[11px] text-muted-foreground">
+                  O que torna este projeto unico
+                </p>
               </div>
             </div>
 
@@ -93,8 +105,12 @@ export default function ProjectDetails({
                   <Layers className="h-3.5 w-3.5 text-accent" />
                 </div>
                 <div>
-                  <h3 className="font-serif text-base font-semibold text-foreground">Servicos</h3>
-                  <p className="text-[11px] text-muted-foreground">Escopo do projeto</p>
+                  <h3 className="font-serif text-base font-semibold text-foreground">
+                    Servicos
+                  </h3>
+                  <p className="text-[11px] text-muted-foreground">
+                    Escopo do projeto
+                  </p>
                 </div>
               </div>
               <span className="rounded-full bg-muted px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
@@ -121,7 +137,7 @@ export default function ProjectDetails({
         )}
       </div>
     </section>
-  )
+  );
 }
 
 function InfoCard({
@@ -129,9 +145,9 @@ function InfoCard({
   label,
   value,
 }: {
-  icon: React.ReactNode
-  label: string
-  value: string
+  icon: React.ReactNode;
+  label: string;
+  value: string;
 }) {
   return (
     <div className="group relative overflow-hidden rounded-xl border border-border bg-card p-5 transition-all duration-200 hover:border-accent/40 hover:shadow-sm">
@@ -146,9 +162,11 @@ function InfoCard({
           <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-muted-foreground/70">
             {label}
           </p>
-          <p className="mt-0.5 text-base font-bold tracking-tight text-foreground">{value}</p>
+          <p className="mt-0.5 text-base font-bold tracking-tight text-foreground">
+            {value}
+          </p>
         </div>
       </div>
     </div>
-  )
+  );
 }

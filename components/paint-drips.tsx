@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 export function PaintDrips() {
   return (
@@ -35,19 +35,46 @@ export function PaintDrips() {
             <feGaussianBlur in="SourceGraphic" stdDeviation="0.8" />
           </filter>
           <filter id="highlight">
-            <feSpecularLighting surfaceScale="3" specularConstant="1" specularExponent="20" result="specOut">
+            <feSpecularLighting
+              surfaceScale="3"
+              specularConstant="1"
+              specularExponent="20"
+              result="specOut"
+            >
               <fePointLight x="50" y="30" z="80" />
             </feSpecularLighting>
-            <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1" k3="0.3" k4="0" />
+            <feComposite
+              in="SourceGraphic"
+              in2="specOut"
+              operator="arithmetic"
+              k1="0"
+              k2="1"
+              k3="0.3"
+              k4="0"
+            />
           </filter>
         </defs>
 
         {/* Paint can tops - subtle circles at the top */}
         <ellipse cx="30" cy="80" rx="18" ry="6" fill="#06b6d4" opacity="0.6" />
         <ellipse cx="60" cy="200" rx="16" ry="5" fill="#ec4899" opacity="0.5" />
-        <ellipse cx="40" cy="340" rx="17" ry="5.5" fill="#f59e0b" opacity="0.55" />
+        <ellipse
+          cx="40"
+          cy="340"
+          rx="17"
+          ry="5.5"
+          fill="#f59e0b"
+          opacity="0.55"
+        />
         <ellipse cx="55" cy="480" rx="15" ry="5" fill="#22c55e" opacity="0.5" />
-        <ellipse cx="35" cy="600" rx="16" ry="5" fill="#f97316" opacity="0.55" />
+        <ellipse
+          cx="35"
+          cy="600"
+          rx="16"
+          ry="5"
+          fill="#f97316"
+          opacity="0.55"
+        />
 
         {/* Cyan drip */}
         <path
@@ -146,5 +173,5 @@ export function PaintDrips() {
         <circle cx="39" cy="878" r="1" fill="#f97316" opacity="0.3" />
       </svg>
     </div>
-  )
+  );
 }

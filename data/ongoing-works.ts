@@ -1,41 +1,41 @@
 export type WorkUpdate = {
-  id: string
-  date: string
-  title: string
-  description: string
-  photos: string[]
-  videos: string[]
-}
+  id: string;
+  date: string;
+  title: string;
+  description: string;
+  photos: string[];
+  videos: string[];
+};
 
 export type WorkComment = {
-  id: string
-  author: string
-  avatar?: string
-  date: string
-  text: string
-  replies?: WorkComment[]
-}
+  id: string;
+  author: string;
+  avatar?: string;
+  date: string;
+  text: string;
+  replies?: WorkComment[];
+};
 
 export type TimelinePhase = {
-  name: string
-  status: "completed" | "in-progress" | "upcoming"
-  date?: string
-}
+  name: string;
+  status: "completed" | "in-progress" | "upcoming";
+  date?: string;
+};
 
 export type OngoingWork = {
-  title: string
-  slug: string
-  description: string
-  coverImage: string
-  category: string
-  location: string
-  startDate: string
-  estimatedEnd: string
-  progress: number
-  phases: TimelinePhase[]
-  updates: WorkUpdate[]
-  comments: WorkComment[]
-}
+  title: string;
+  slug: string;
+  description: string;
+  coverImage: string;
+  category: string;
+  location: string;
+  startDate: string;
+  estimatedEnd: string;
+  progress: number;
+  phases: TimelinePhase[];
+  updates: WorkUpdate[];
+  comments: WorkComment[];
+};
 
 export const ongoingWorks: OngoingWork[] = [
   {
@@ -196,8 +196,8 @@ export const ongoingWorks: OngoingWork[] = [
     ],
     comments: [],
   },
-]
+];
 
 export function getOngoingWorkBySlug(slug: string) {
-  return ongoingWorks.find((w) => w.slug === slug)
+  return ongoingWorks.find((w) => w.slug === slug);
 }

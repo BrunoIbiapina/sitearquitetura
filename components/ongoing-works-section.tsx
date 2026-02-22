@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import Link from "next/link"
-import { MapPin, Calendar, ArrowRight, HardHat } from "lucide-react"
-import { ongoingWorks } from "@/data/ongoing-works"
+import Image from "next/image";
+import Link from "next/link";
+import { MapPin, Calendar, ArrowRight, HardHat } from "lucide-react";
+import { ongoingWorks } from "@/data/ongoing-works";
 
 export function OngoingWorksSection() {
   return (
@@ -21,7 +21,8 @@ export function OngoingWorksSection() {
             Obras em Andamento
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Acompanhe em tempo real a evolucao dos nossos projetos. Transparencia e qualidade em cada etapa da construcao.
+            Acompanhe em tempo real a evolucao dos nossos projetos.
+            Transparencia e qualidade em cada etapa da construcao.
           </p>
         </div>
 
@@ -78,7 +79,11 @@ export function OngoingWorksSection() {
                   </span>
                   <span className="inline-flex items-center gap-1">
                     <Calendar className="h-3.5 w-3.5" />
-                    Prev. {new Date(work.estimatedEnd).toLocaleDateString("pt-BR", { month: "short", year: "numeric" })}
+                    Prev.{" "}
+                    {new Date(work.estimatedEnd).toLocaleDateString("pt-BR", {
+                      month: "short",
+                      year: "numeric",
+                    })}
                   </span>
                 </div>
 
@@ -86,7 +91,9 @@ export function OngoingWorksSection() {
                 <div className="mt-4">
                   <div className="flex items-center justify-between text-[11px] text-muted-foreground">
                     <span>Progresso</span>
-                    <span className="font-semibold tabular-nums text-foreground">{work.progress}%</span>
+                    <span className="font-semibold tabular-nums text-foreground">
+                      {work.progress}%
+                    </span>
                   </div>
                   <div className="mt-1.5 h-1.5 w-full rounded-full bg-muted">
                     <div
@@ -107,5 +114,5 @@ export function OngoingWorksSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

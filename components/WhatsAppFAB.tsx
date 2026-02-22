@@ -1,45 +1,45 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react";
 
-const WHATSAPP_NUMBER = "5511999999999" // Substitua pelo número desejado
+const WHATSAPP_NUMBER = "5511999999999"; // Substitua pelo número desejado
 const WHATSAPP_MESSAGE =
-  "Olá! Vim pelo site e gostaria de solicitar um orçamento."
+  "Olá! Vim pelo site e gostaria de solicitar um orçamento.";
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-  WHATSAPP_MESSAGE
-)}`
+  WHATSAPP_MESSAGE,
+)}`;
 
 export function WhatsAppFAB() {
-  const [showTooltip, setShowTooltip] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
-  const pulseRef = useRef<HTMLButtonElement>(null)
+  const [showTooltip, setShowTooltip] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const pulseRef = useRef<HTMLButtonElement>(null);
 
   // Detecta mobile
   useEffect(() => {
-    setIsMobile(window.innerWidth <= 600)
-  }, [])
+    setIsMobile(window.innerWidth <= 600);
+  }, []);
 
   // Tooltip aparece por 2s ao carregar no mobile
   useEffect(() => {
     if (isMobile) {
-      setShowTooltip(true)
-      const timer = setTimeout(() => setShowTooltip(false), 2000)
-      return () => clearTimeout(timer)
+      setShowTooltip(true);
+      const timer = setTimeout(() => setShowTooltip(false), 2000);
+      return () => clearTimeout(timer);
     }
-  }, [isMobile])
+  }, [isMobile]);
 
   // Bounce discreto a cada 10s
   useEffect(() => {
     const interval = setInterval(() => {
       if (pulseRef.current) {
-        pulseRef.current.classList.add("animate-bounce-fab")
+        pulseRef.current.classList.add("animate-bounce-fab");
         setTimeout(() => {
-          pulseRef.current?.classList.remove("animate-bounce-fab")
-        }, 600)
+          pulseRef.current?.classList.remove("animate-bounce-fab");
+        }, 600);
       }
-    }, 10000)
-    return () => clearInterval(interval)
-  }, [])
+    }, 10000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div
@@ -103,11 +103,15 @@ export function WhatsAppFAB() {
           border-radius: 50%;
           background: #25d366;
           border: 2.5px solid #e9f7ef;
-          box-shadow: 0 4px 24px 0 rgba(0,0,0,0.10), 0 1.5px 6px 0 rgba(0,0,0,0.04);
+          box-shadow:
+            0 4px 24px 0 rgba(0, 0, 0, 0.1),
+            0 1.5px 6px 0 rgba(0, 0, 0, 0.04);
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: box-shadow 0.18s, transform 0.18s;
+          transition:
+            box-shadow 0.18s,
+            transform 0.18s;
           cursor: pointer;
           outline: none;
           position: relative;
@@ -122,7 +126,9 @@ export function WhatsAppFAB() {
         }
         .whatsapp-fab:hover,
         .whatsapp-fab:focus-visible {
-          box-shadow: 0 8px 32px 0 rgba(0,0,0,0.16), 0 2px 8px 0 rgba(0,0,0,0.06);
+          box-shadow:
+            0 8px 32px 0 rgba(0, 0, 0, 0.16),
+            0 2px 8px 0 rgba(0, 0, 0, 0.06);
           transform: scale(1.04);
         }
         .whatsapp-fab-pulse {
@@ -135,24 +141,46 @@ export function WhatsAppFAB() {
           background: rgba(37, 211, 102, 0.18);
           transform: translate(-50%, -50%) scale(1);
           z-index: 0;
-          animation: whatsapp-fab-pulse 2.2s infinite cubic-bezier(0.4,0,0.2,1);
+          animation: whatsapp-fab-pulse 2.2s infinite
+            cubic-bezier(0.4, 0, 0.2, 1);
           pointer-events: none;
         }
         @keyframes whatsapp-fab-pulse {
-          0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
-          60% { transform: translate(-50%, -50%) scale(1.18); opacity: 0.15; }
-          100% { transform: translate(-50%, -50%) scale(1.25); opacity: 0; }
+          0% {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0.7;
+          }
+          60% {
+            transform: translate(-50%, -50%) scale(1.18);
+            opacity: 0.15;
+          }
+          100% {
+            transform: translate(-50%, -50%) scale(1.25);
+            opacity: 0;
+          }
         }
         .animate-bounce-fab {
-          animation: whatsapp-fab-bounce 0.6s cubic-bezier(0.4,0,0.2,1);
+          animation: whatsapp-fab-bounce 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
         @keyframes whatsapp-fab-bounce {
-          0% { transform: scale(1); }
-          20% { transform: scale(1.08, 0.96); }
-          40% { transform: scale(0.96, 1.08); }
-          60% { transform: scale(1.04, 0.98); }
-          80% { transform: scale(0.98, 1.04); }
-          100% { transform: scale(1); }
+          0% {
+            transform: scale(1);
+          }
+          20% {
+            transform: scale(1.08, 0.96);
+          }
+          40% {
+            transform: scale(0.96, 1.08);
+          }
+          60% {
+            transform: scale(1.04, 0.98);
+          }
+          80% {
+            transform: scale(0.98, 1.04);
+          }
+          100% {
+            transform: scale(1);
+          }
         }
         .whatsapp-fab-tooltip {
           position: absolute;
@@ -163,15 +191,17 @@ export function WhatsAppFAB() {
           color: #222;
           border-radius: 12px;
           border: 1.5px solid #e9e9e9;
-          box-shadow: 0 2px 12px 0 rgba(0,0,0,0.07);
+          box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.07);
           padding: 10px 18px;
           font-size: 1rem;
-          font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+          font-family: "Inter", "Segoe UI", Arial, sans-serif;
           font-weight: 500;
           opacity: 0;
           pointer-events: none;
           white-space: nowrap;
-          transition: opacity 0.18s, transform 0.18s;
+          transition:
+            opacity 0.18s,
+            transform 0.18s;
           z-index: 10;
         }
         .whatsapp-fab-tooltip-visible {
@@ -187,5 +217,5 @@ export function WhatsAppFAB() {
         }
       `}</style>
     </div>
-  )
+  );
 }
